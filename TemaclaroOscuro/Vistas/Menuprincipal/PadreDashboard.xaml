@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TemaClaroOscuro.Vistas.Menuprincipal.PadreDashboard"
+             NavigationPage.HasNavigationBar="False"
+             xmlns:componente="clr-namespace:TemaClaroOscuro.Vistas.Menuprincipal">
+    <CollectionView ItemsSource="{Binding Listamov}">
+        <CollectionView.Header>
+            <componente:Encabezado />
+        </CollectionView.Header>
+        <CollectionView.ItemTemplate>
+            <DataTemplate>
+                <Grid Margin="10,0,20,0">
+                    <StackLayout Orientation="Horizontal"
+                                 HeightRequest="100"
+                                 Margin="10,0,20,0">
+                        <Image Source="{Binding Foto}"
+                               Margin="27" />
+                        <StackLayout VerticalOptions="Center">
+                            <Label Text="{Binding Nombre}"
+                                   FontAttributes="Bold" />
+                            <Label Text="26 feb 2020"
+                                   TextColor="Gray" />
+                        </StackLayout>
+                        <StackLayout VerticalOptions="Center"
+                                     HorizontalOptions="EndAndExpand">
+                            <Label Text="-$24.99"
+                                   FontAttributes="Bold" />
+                            <Label Text="4:20 PM"
+                                   FontAttributes="Italic" />
+                        </StackLayout>
+                    </StackLayout>
+                </Grid>
+            </DataTemplate>
+        </CollectionView.ItemTemplate>
+    </CollectionView>
+</ContentPage>

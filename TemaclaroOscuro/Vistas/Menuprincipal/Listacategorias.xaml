@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TemaClaroOscuro.Vistas.Menuprincipal.Listacategorias"
+            >
+    <CollectionView ItemsSource="{Binding Listacategorias}">
+        <CollectionView.ItemsLayout>
+            <GridItemsLayout Orientation="Horizontal"
+                             Span="1"
+                             HorizontalItemSpacing="20" />
+        </CollectionView.ItemsLayout>
+        <CollectionView.ItemTemplate>
+            <DataTemplate>
+                <Frame WidthRequest="90"
+                       HorizontalOptions="Start"
+                       CornerRadius="20"
+                       HasShadow="False"
+                       >
+                    <StackLayout>
+                        <Frame HorizontalOptions="Start"
+                               Padding="5"
+                               CornerRadius="8"
+                               BackgroundColor="{Binding Color}"
+                               HasShadow="False"
+                               Margin="0,0,0,18">
+                            <Image Source="{Binding Icono}"
+                                   HeightRequest="25" />
+                        </Frame>
+                        <StackLayout>
+                            <Label Text="{Binding Categoria}"
+                                   FontAttributes="Bold"
+                                 />
+                            <ProgressBar Progress="0.5"
+                                         ProgressColor="{Binding Color}" />
+                        </StackLayout>
+                    </StackLayout>
+                </Frame>
+            </DataTemplate>
+        </CollectionView.ItemTemplate>
+    </CollectionView>
+</ContentView>

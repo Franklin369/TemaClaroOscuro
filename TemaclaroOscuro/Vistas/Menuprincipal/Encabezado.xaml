@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"  
+             xmlns:listacategorias1="clr-namespace:TemaClaroOscuro.Vistas.Menuprincipal"
+             x:Class="TemaClaroOscuro.Vistas.Menuprincipal.Encabezado"
+            >
+    <Grid RowDefinitions="auto,auto,180">
+        <StackLayout Orientation="Horizontal"
+                     Margin="10">
+            <Button Text="Cambiar tema"
+                    CornerRadius="15"
+                    TextTransform="None"
+                    FontAttributes="Bold"
+                    Command="{Binding Cambiartemacommand}"
+                    />
+            <Label Text="Mis tarjetas"
+                 
+                   FontAttributes="Bold"
+                   HorizontalOptions="CenterAndExpand"
+                   FontSize="Large"
+                   VerticalOptions="Center"
+                   VerticalTextAlignment="Center" />
+        </StackLayout>
+        <StackLayout Grid.Row="1"
+                     HeightRequest="330">
+            <Grid>
+                <Frame Margin="30"
+                      
+                       Padding="0"
+                       CornerRadius="30"
+                       HasShadow="False">
+                    <Image Source="Peach.png"
+                           Aspect="AspectFill" />
+                </Frame>
+               
+                <StackLayout TranslationY="0"
+                             Margin="45">
+                    <StackLayout Orientation="Horizontal">
+                        <Image Source="chii.png"
+                               HeightRequest="45"
+                               Margin="10" />
+                        <Image Source="mastercard.png"
+                               HeightRequest="30"
+                               Margin="10"
+                               HorizontalOptions="EndAndExpand" />
+                    </StackLayout>
+                    <StackLayout VerticalOptions="EndAndExpand"
+                                 Orientation="Horizontal"
+                                 Margin="20">
+                        <StackLayout HorizontalOptions="StartAndExpand"
+                                     VerticalOptions="Center">
+                            <Label Text="Saldo"
+                                   TextColor="White" />
+                            <Label Text="$ 35 604.00"
+                                   FontAttributes="Bold"
+                                   TextColor="White"
+                                   FontSize="20" />
+                        </StackLayout>
+                        <Image Source="hojas.png"
+                               HeightRequest="70"
+                               VerticalOptions="Center"
+                               HorizontalOptions="End" />
+                    </StackLayout>
+                </StackLayout>
+            </Grid>
+        </StackLayout>
+        <listacategorias1:Listacategorias Grid.Row="2"
+                                          Margin="20" />
+    </Grid>
+</ContentView>

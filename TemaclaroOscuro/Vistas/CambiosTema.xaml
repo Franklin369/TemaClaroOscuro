@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:trigger="clr-namespace:TemaClaroOscuro.Triggers"
+             x:Class="TemaClaroOscuro.Vistas.CambiosTema"
+             NavigationPage.HasNavigationBar="False">
+    <Grid>
+        <Image Source="https://i.ibb.co/tKVXRD2/dom.png"
+               VerticalOptions="Start"
+               HorizontalOptions="Start"
+               Margin="30,105,0,0"
+               HeightRequest="110">
+            <Image.Triggers>
+                <MultiTrigger TargetType="Image">
+                    <MultiTrigger.Conditions>
+                        <BindingCondition Binding="{Binding Source={x:Reference interrutor},Path=IsToggled}"
+                                          Value="False" />
+                    </MultiTrigger.Conditions>
+                    <MultiTrigger.EnterActions>
+                        <trigger:Tblanco Indicador="False" />
+                    </MultiTrigger.EnterActions>
+                    <MultiTrigger.ExitActions>
+                        <trigger:Tblanco Indicador="True" />
+                    </MultiTrigger.ExitActions>
+                </MultiTrigger>
+            </Image.Triggers>
+        </Image>
+        <Grid VerticalOptions="Center"
+              Margin="20">
+            <StackLayout Margin="0,40"
+                         VerticalOptions="Center">
+                <Label HorizontalOptions="Center"
+                       VerticalOptions="Center"
+                       FontAttributes="Bold"
+                       FontSize="50"
+                       HorizontalTextAlignment="Center">
+                    <Label.Triggers>
+                        <DataTrigger TargetType="Label"
+                                     Binding="{Binding Source={x:Reference interrutor},Path=IsToggled}"
+                                     Value="True">
+                            <Setter Property="Text"
+                                    Value="Soy el tema oscuro" />
+                        </DataTrigger>
+                        <DataTrigger TargetType="Label"
+                                     Binding="{Binding Source={x:Reference interrutor},Path=IsToggled}"
+                                     Value="False">
+                            <Setter Property="Text"
+                                    Value="Soy el tema claro" />
+                        </DataTrigger>
+                    </Label.Triggers>
+                </Label>
+                <Button Text="Ver resultado"
+                        CornerRadius="30"
+                        HorizontalOptions="Center"
+                        Margin="20"
+                        HeightRequest="65"
+                        FontAttributes="Bold"
+                        Command="{Binding Verresultadoscommand}" />
+            </StackLayout>
+        </Grid>
+        <Frame VerticalOptions="Start"
+               HorizontalOptions="End"
+               HasShadow="False"
+               CornerRadius="20"
+               Margin="20"
+               Padding="13">
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Tema dark"
+                       VerticalOptions="Center"
+                       FontAttributes="Bold"
+                       FontSize="20" />
+                <Switch VerticalOptions="Center"
+                        IsToggled="{Binding Temadark,Mode=TwoWay}"
+                        x:Name="interrutor"></Switch>
+            </StackLayout>
+        </Frame>
+    </Grid>
+</ContentPage>
